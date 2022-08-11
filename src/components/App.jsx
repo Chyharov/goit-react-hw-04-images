@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getArticles } from 'Services/apiService';
+import { fetchApi } from 'Services/apiService';
 import Button from './Button/Button';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
@@ -22,8 +22,8 @@ export default function App() {
     if (searchQuery === '') return;
 
     setIsLoading(true);
-
-    getArticles(searchQuery, page)
+    
+    fetchApi(searchQuery, page)
       .then(data => {
         setSearchData(prev => [...prev, ...data.hits]);
       })
