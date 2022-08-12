@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import s from './Modal.module.css';
 import PropTypes from 'prop-types';
 
-const Modal = ({ dataLargeImage, toogleModal }) => {
+const Modal = ({ dataLargeImage, toggleModal }) => {
   const { largeImageURL, tags } = dataLargeImage;
 
   useEffect(() => {
@@ -19,12 +19,12 @@ const Modal = ({ dataLargeImage, toogleModal }) => {
   });
 
   const onOverlayClick = e => {
-    e.target === e.currentTarget && toogleModal();
+    e.target === e.currentTarget && toggleModal();
   };
 
   const onEscapeClick = e => {
     if (e.code === 'Escape') {
-      toogleModal();
+      toggleModal();
     }
   };
 
@@ -38,7 +38,7 @@ const Modal = ({ dataLargeImage, toogleModal }) => {
 };
 
 Modal.propTypes = {
-  toogleModal: PropTypes.func,
+  toggleModal: PropTypes.func,
   dataLargeImage: PropTypes.shape({
     largeImageURL: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,

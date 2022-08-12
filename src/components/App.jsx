@@ -44,10 +44,10 @@ export default function App() {
 
   const onHandleClickImage = data => {
     setDataLargeImage(data);
-    toogleModal();
+    toggleModal();
   };
 
-  const toogleModal = () => {
+  const toggleModal = () => {
     setIsModalOpen(prev => !prev);
   };
   
@@ -64,7 +64,7 @@ export default function App() {
         toast.error('Sorry, there are no images matching your search query.')}
       <ToastContainer autoClose={5000} />
       {isModalOpen && (
-        <Modal dataLargeImage={dataLargeImage} toogleModal={toogleModal} />
+        <Modal dataLargeImage={dataLargeImage} toggleModal={toggleModal} />
       )}
     </div>
   );
